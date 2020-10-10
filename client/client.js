@@ -4,8 +4,15 @@ let host = 'http://localhost:3000';
 const hubConnection = io.connect(`${host}/hub-system`);
 
 function logger(payload) {
-    return payload; 
+    console.log(payload); 
 }
 
+
+setInterval(() => {
+    let payload = {
+        name:'test'
+    }
+    hubConnection.emit('checkout', payload); 
+}, 3000);
 
 hubConnection.on('checkout', logger); 
