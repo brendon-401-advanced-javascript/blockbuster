@@ -2,7 +2,7 @@
   "name": "blockbuster",
   "version": "1.0.0",
   "description": "small team app for events, using a blockbuster style checkout of movies",
-  "main": "index.js",
+  "main": "hub.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
