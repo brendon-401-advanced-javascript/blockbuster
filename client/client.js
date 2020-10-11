@@ -2,10 +2,10 @@
 'use strict';
 const io = require('socket.io-client');
 let host = 'http://localhost:3000'; 
-const hubConnection = io.connect(`${host}/hub-system`);
+const hubConnection = io.connect(host);
 
 function logger(payload) {
-    console.log(payload); 
+    return payload; 
 }
 
 
