@@ -1,19 +1,16 @@
 
-// 'use strict';
-// const io = require('socket.io-client');
-// let host = 'http://localhost:3000'; 
-// const hubConnection = io.connect(host);
+'use strict';
+const io = require('socket.io-client');
+let host = 'http://localhost:3000'; 
+const hubConnection = io.connect(host);
 
-// function logger(payload) {
-//     return payload; 
-// }
+function checkedOut(payload) {
+    setTimeout(() => {
+        hubConnection.emit('checked-out',payload);   
+
+    },1000);
+}
 
 
-// setInterval(() => {
-//     let payload = {
-//         movie:''
-//     }
-//     hubConnection.emit('checkout', payload); 
-// }, 3000);
 
-// hubConnection.on('checkout', logger); 
+hubConnection.on('in-stock', checkedOut); 

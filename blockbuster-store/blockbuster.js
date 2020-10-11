@@ -15,7 +15,7 @@ setInterval(() => {
     let movies = ['Top Gun','Lord of The Rings', 'Dirty Dancing', 'Mission Impossible', 'Hard to Kill', 'Ghost Rider', 'Ghost Busters', 'Bill and Teds Excellent Adventure'];
 
     let randomMovie = movies[Math.floor(Math.random()*movies.length)];
-    hubConnection.emit('checkout', randomMovie); 
-}, 3000);
+    hubConnection.emit('in-stock', randomMovie); 
+}, 5000);
 
-hubConnection.on('checkout', logger); 
+hubConnection.on('in-stock', logger); 
