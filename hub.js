@@ -1,3 +1,4 @@
+
 'use strict';
 const io = require('socket.io')(3000);
 const ioClient = require('socket.io-client');
@@ -17,8 +18,4 @@ hub.on('connection', (socket) => {
         socket.broadcast.emit('checkout', payload); 
     })
 });
-
-
-
-
 
