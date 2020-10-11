@@ -9,9 +9,9 @@ io.on('connection', (socket) => {
         socket.emit('in-stock',payload);
         console.log(payload, 'is ready to be checked out');
     });
-    socket.on('in-stock', (payload) => {
-        socket.emit('checked-out', payload);
+    socket.on('checked-out', (payload) => {
         console.log(payload, 'was checked out');
+        io.emit('checked-out', payload);
     })
 });
 

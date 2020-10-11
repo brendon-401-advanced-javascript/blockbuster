@@ -16,6 +16,6 @@ setInterval(() => {
 
     let randomMovie = movies[Math.floor(Math.random()*movies.length)];
     hubConnection.emit('in-stock', randomMovie); 
-}, 5000);
+},5000);
 
 hubConnection.on('in-stock', logger); 
