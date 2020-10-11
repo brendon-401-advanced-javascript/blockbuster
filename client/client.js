@@ -1,19 +1,19 @@
 
-'use strict';
-const io = require('socket.io-client');
-let host = 'http://localhost:3000'; 
-const hubConnection = io.connect(host);
+// 'use strict';
+// const io = require('socket.io-client');
+// let host = 'http://localhost:3000'; 
+// const hubConnection = io.connect(host);
 
-function logger(payload) {
-    return payload; 
-}
+// function logger(payload) {
+//     return payload; 
+// }
 
 
-setInterval(() => {
-    let payload = {
-        name:'test'
-    }
-    hubConnection.emit('checkout', payload); 
-}, 3000);
+// setInterval(() => {
+//     let payload = {
+//         movie:''
+//     }
+//     hubConnection.emit('checkout', payload); 
+// }, 3000);
 
-hubConnection.on('checkout', logger); 
+// hubConnection.on('checkout', logger); 
