@@ -1,19 +1,19 @@
 
 'use strict';
-const io = require('socket.io-client');
-let host = 'http://localhost:3000'; 
-const hubConnection = io.connect(`${host}/hub-system`);
 
-function logger(payload) {
-    console.log(payload); 
+const io = require('socket.io-client');
+
+let host = 'http://localhost:3000'; 
+
+const hubConnection = io.connect(host);
+
+function checkedOut(payload) {
+    setTimeout(() => {
+        hubConnection.emit('checked-out',payload);   
+        
+    },2000);
 }
 
 
-setInterval(() => {
-    let payload = {
-        name:'test'
-    }
-    hubConnection.emit('checkout', payload); 
-}, 3000);
 
-hubConnection.on('checkout', logger); 
+hubConnection.on('in-stock', checkedOut); 
