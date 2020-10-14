@@ -4,9 +4,9 @@
 
 ## Directory
 
-1. [Authors](###Authors)
-2. [Setup](###Setup)
-3. [UML/How to](##How-to)
+1. [Authors/Links](###Authors)
+3. [Setup](###Setup)
+4. [UML/How to](##How-to)
 
 small team app for events, using a blockbuster style checkout of movies
 
@@ -22,7 +22,8 @@ small team app for events, using a blockbuster style checkout of movies
 
 ### Links and Resources
 
-- [submission PR]()
+- [submission PR](https://github.com/brendon-401-advanced-javascript/blockbuster/pull/6)
+- [PowerPoint](https://docs.google.com/presentation/d/1UwZUd1zSywUAF1Kohuf-iOW0U0uS_KBK12q3K6BtctM/edit?usp=sharing)
 - [ci/cd](https://github.com/brendon-401-advanced-javascript/blockbuster/actions) (GitHub Actions)
 - [back-end server url](http://xyz.com) (when applicable)
 - [front-end application](http://xyz.com) (when applicable)
@@ -81,13 +82,7 @@ small team app for events, using a blockbuster style checkout of movies
     - run nodemon on root where your package.json is located.
 - else 
     - run **node client.js** in terminal where your file is located.
-
-
-
-
-
+    
 ## UML
-
-
 ![UML](./assets/img/blockbusterUML.png)
 
