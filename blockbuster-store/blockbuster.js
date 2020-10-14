@@ -44,16 +44,13 @@ hubConnection.on('request', (payload) => {
 
   for (let i = 0; i < movies.results.length; i++) {
     if (movies.results[i].name === payload) {
-      // console.log(movies.results[i]);
       dbMovie = movies.results[i];
-      // console.log(dbMovie.status);
       index = i;
     } else {
       // dbMovie = 'movie not in database';
     }
   }
 
-  // console.log(dbMovie.status);
   if (dbMovie.status === 'in stock') {
     hubConnection.emit('check-out', dbMovie);
     movies.results[index].status = 'checked-out';
