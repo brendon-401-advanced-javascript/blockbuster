@@ -53,7 +53,7 @@ hubConnection.on('request', (payload) => {
     }
   }
 
-  console.log(dbMovie.status);
+  // console.log(dbMovie.status);
   if (dbMovie.status === 'in stock') {
     hubConnection.emit('check-out', dbMovie);
     movies.results[index].status = 'checked-out';
