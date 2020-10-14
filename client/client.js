@@ -22,7 +22,7 @@ setInterval(() => {
 
 hubConnection.on('check-out', (payload) => {
   if (payload.status === 'in stock') {
-    console.log('you checked out', payload.name);
+    console.log('You checked out:', payload.name);
     console.log('=================================================');
   }
   if (payload.name === undefined) {
@@ -30,7 +30,7 @@ hubConnection.on('check-out', (payload) => {
   }
 
   setTimeout(() => {
-    console.log('you checked in', payload.name);
+    console.log('You checked in:', payload.name);
     console.log('=================================================');
     hubConnection.emit('check-in', payload.name);
   }, 2000);

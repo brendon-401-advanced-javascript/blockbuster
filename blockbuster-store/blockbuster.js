@@ -5,10 +5,6 @@ const io = require('socket.io-client');
 let host = 'http://localhost:3000';
 const hubConnection = io.connect(host);
 
-function logger(payload) {
-  return payload;
-}
-
 let movies = {
   results: [
     {
@@ -38,7 +34,7 @@ let movies = {
 };
 
 hubConnection.on('request', (payload) => {
-  console.log(`${payload} checked out`);
+  console.log(`${payload}: Checked out`);
   console.log('=================================================');
   let dbMovie = { status: 'broken', name: 'movie not in database' };
   let index;
@@ -65,7 +61,7 @@ hubConnection.on('check-in', (payload) => {
   for (let i = 0; i < movies.results.length; i++) {
     if (movies.results[i].name === payload) {
       movies.results[i].status = 'in stock';
-      console.log(payload, 'checked back in');
+      console.log(`${payload}: checked back in`);
       console.log('=================================================');
     }
   }
