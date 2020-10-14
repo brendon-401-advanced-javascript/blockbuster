@@ -2,7 +2,8 @@
 
 const io = require('socket.io-client');
 
-let host = 'http://d10f3f990979.ngrok.io';
+let host = 'http://localhost:3000';
+// let host = 'http://d10f3f990979.ngrok.io';
 
 const hubConnection = io.connect(host);
 
@@ -22,12 +23,15 @@ setInterval(() => {
 hubConnection.on('check-out', (payload) => {
   if (payload.status === 'in stock') {
     console.log('you checked out', payload.name);
-  } else {
-    // console.log(payload);
+    console.log('=================================================');
+  }
+  if (payload.name === undefined) {
+    return;
   }
 
-  setInterval(() => {
+  setTimeout(() => {
     console.log('you checked in', payload.name);
+    console.log('=================================================');
     hubConnection.emit('check-in', payload.name);
-  }, 5000);
+  }, 2000);
 });
