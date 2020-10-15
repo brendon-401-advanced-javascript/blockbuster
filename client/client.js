@@ -3,6 +3,7 @@
 const io = require('socket.io-client');
 
 let host = 'http://localhost:3000';
+// let host = 'http://d10f3f990979.ngrok.io';
 
 const hubConnection = io.connect(host);
 
@@ -15,20 +16,21 @@ setInterval(() => {
   ];
 
   let randomMovie = movies[Math.floor(Math.random() * movies.length)];
-  // console.log(randomMovie);
-
   hubConnection.emit('request', randomMovie);
-}, 1000);
+}, 5000);
 
 hubConnection.on('check-out', (payload) => {
   if (payload.status === 'in stock') {
-    console.log('you checked out', payload);
-  } else {
-    // console.log(payload);
+    console.log('=================================================');
+    console.log('You Checked Out:', payload.name);
+  }
+  if (payload.name === undefined) {
+    return;
   }
 
-  setInterval(() => {
-    console.log('you checked in', payload);
+  setTimeout(() => {
+    console.log('You Checked In:', payload.name);
+    console.log('');
     hubConnection.emit('check-in', payload.name);
-  }, 5000);
+  }, 2000);
 });
