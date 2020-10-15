@@ -34,8 +34,10 @@ let movies = {
 };
 
 hubConnection.on('request', (payload) => {
-  console.log(`${payload}: Checked out`);
+  console.log('');
   console.log('=================================================');
+  console.log(`Client ID: ${hubConnection.id}`);
+  console.log(`${payload}: Checked Out`);
   let dbMovie = { status: 'broken', name: 'movie not in database' };
   let index;
 
@@ -61,8 +63,8 @@ hubConnection.on('check-in', (payload) => {
   for (let i = 0; i < movies.results.length; i++) {
     if (movies.results[i].name === payload) {
       movies.results[i].status = 'in stock';
-      console.log(`${payload}: checked back in`);
-      console.log('=================================================');
+      console.log(`${payload}: Checked Back In`);
+      // console.log('=================================================');
     }
   }
 });

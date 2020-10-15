@@ -2,7 +2,7 @@
 const io = require('socket.io')(3000);
 
 io.on('connection', (socket) => {
-  console.log('were connected', socket.id);
+  console.log('Connected to:', socket.id);
 
   socket.on('request', (payload) => {
     io.emit('request', payload);

@@ -22,16 +22,18 @@ setInterval(() => {
 
 hubConnection.on('check-out', (payload) => {
   if (payload.status === 'in stock') {
-    console.log('You checked out:', payload.name);
     console.log('=================================================');
+    console.log('You Checked Out:', payload.name);
+    // console.log('');
   }
   if (payload.name === undefined) {
     return;
   }
 
   setTimeout(() => {
-    console.log('You checked in:', payload.name);
-    console.log('=================================================');
+    console.log('You Checked In:', payload.name);
+    // console.log('=================================================');
+    console.log('');
     hubConnection.emit('check-in', payload.name);
   }, 2000);
 });
