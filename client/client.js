@@ -3,7 +3,7 @@
 const io = require('socket.io-client');
 
 let host = 'http://localhost:3000';
-// let host = 'http://d10f3f990979.ngrok.io';
+// let host = 'http://60c869bd29b7.ngrok.io';
 
 const hubConnection = io.connect(host);
 
