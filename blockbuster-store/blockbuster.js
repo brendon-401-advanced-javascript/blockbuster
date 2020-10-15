@@ -64,7 +64,6 @@ hubConnection.on('check-in', (payload) => {
     if (movies.results[i].name === payload) {
       movies.results[i].status = 'in stock';
       console.log(`${payload}: Checked Back In`);
-      // console.log('=================================================');
     }
   }
 });

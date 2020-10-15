@@ -16,7 +16,6 @@ setInterval(() => {
   ];
 
   let randomMovie = movies[Math.floor(Math.random() * movies.length)];
-  // console.log(randomMovie);
   hubConnection.emit('request', randomMovie);
 }, 5000);
 
@@ -24,7 +23,6 @@ hubConnection.on('check-out', (payload) => {
   if (payload.status === 'in stock') {
     console.log('=================================================');
     console.log('You Checked Out:', payload.name);
-    // console.log('');
   }
   if (payload.name === undefined) {
     return;
@@ -32,7 +30,6 @@ hubConnection.on('check-out', (payload) => {
 
   setTimeout(() => {
     console.log('You Checked In:', payload.name);
-    // console.log('=================================================');
     console.log('');
     hubConnection.emit('check-in', payload.name);
   }, 2000);
